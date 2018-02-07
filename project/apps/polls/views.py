@@ -7,8 +7,9 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
 
 from django.urls import reverse
-
 from .models import Question, Choice
+
+from project.libs.decorator import post_method, get_method
 
 
 def index(request):
@@ -40,6 +41,7 @@ def results(request, question_id):
     return render(request, 'polls/results.html', {'question': question})
 
 
+@post_method
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -57,5 +59,9 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
+
         # 这里的 reverse 通过给定的 模板名和参数，生成对应的url, 如 '/polls/3/results/'
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+def action(request, question_id):
+    pass

@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+
+from django.contrib.auth.models import User
+
+from django.shortcuts import render
+
+
+def render_root(request):
+    return render(request, 'index.html');
 
 
 urlpatterns = [
+    path('', render_root),
 	path('polls/', include('project.apps.polls.urls')), # 引用了 polls 的 url.py 配置
     path('admin/', admin.site.urls),
 ]
