@@ -3,6 +3,7 @@ from functools import wraps
 from django.shortcuts import render
 from django.http import JsonResponse
 
+
 error_msg = {
 	'code': -1,
 	'msg': "wrong method"
@@ -28,4 +29,7 @@ def get_method(func):
 		else:
 			return JsonResponse( error_msg )
 	return _deco	
+
+
+
 

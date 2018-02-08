@@ -131,3 +131,117 @@ STATICFILES_DIRS = (
  
 
 
+# log 日志
+ 
+
+
+LOG_DIR = os.path.join(BASE_DIR,'logs')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(levelname)-6s]- %(asctime)-12s - %(filename)-12s - %(funcName)-10s   \n%(message)s \n' + '-'*80,
+        },
+        'simple': {
+            'format': '[%(levelname)-6s]- %(asctime)-12s \n%(message)s \n' + '-'*80,
+        },
+ 
+
+    },
+    'filters': {
+ 
+    },
+    'handlers': {
+        # 输出全部信息 到 default.log
+        'default': {
+            'level': 'DEBUG',
+            'formatter': 'verbose',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'default.log'), 
+        },
+        # 输出 warnning 以上的信息到 error.log
+        'error_log': {
+            'level': 'WARNING',
+            'formatter': 'verbose',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'error.log'), 
+        },
+
+        # 输出 自定义调试信息 到 debug.log
+        'debug_log': {
+            'level': 'DEBUG',
+            'formatter': 'verbose',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'debug.log'), 
+        },
+
+
+        # 输出信息到 stdout  
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+
+
+        #  信息 用邮件发送警告的
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'default', 'error_log'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        # 'django.request': {
+        #     'handlers': ['mail_admins'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        'myproject.custom': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'INFO',
+        },
+
+        'root': {
+            'handlers': ['debug_log', 'error_log',]
+        }
+    }
+}
+
+
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+#         },
+#     },
+# }
+
+
+
+
+
+# 自定义配置
+'''oa接口'''
+# oa登录接口
+OA_LOGIN_URL = 'https://passport.oa.fenqile.com'
+# oa开放平台接口
+OA_OPEN_URL = 'https://open.oa.fenqile.com'
+
+
+

@@ -9,7 +9,11 @@ from django.shortcuts import render
 from django.urls import reverse
 from .models import Question, Choice
 
-from project.libs.decorator import post_method, get_method
+from project.common.decorator import post_method, get_method
+
+import logging
+
+logger = logging.getLogger('root')
 
 
 def index(request):
@@ -48,7 +52,8 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
+        # logger.error('testtest', stack_info=True)
+        return rendr(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })

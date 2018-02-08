@@ -1,0 +1,108 @@
+ERROR - 2018-02-08 14:53:05,244 
+Internal Server Error: /polls/1/vote/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\project\apps\polls\views.py", line 52, in vote
+    selected_choice = question.choice_set.get(pk=request.POST['choice'])
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\libs\decorator.py", line 15, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\polls\views.py", line 56, in vote
+    return rendr(request, 'polls/detail.html', {
+NameError: name 'rendr' is not defined
+ERROR - 2018-02-08 14:53:05,309 
+"POST /polls/1/vote/ HTTP/1.1" 500 83836 
+--------------------------------------------------------------------------------
+ERROR - 2018-02-08 14:53:47,767 - exception.py - handle_uncaught_exception   
+Internal Server Error: /polls/1/vote/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\project\apps\polls\views.py", line 52, in vote
+    selected_choice = question.choice_set.get(pk=request.POST['choice'])
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\libs\decorator.py", line 15, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\polls\views.py", line 56, in vote
+    return rendr(request, 'polls/detail.html', {
+NameError: name 'rendr' is not defined
+ERROR - 2018-02-08 14:53:47,827 - basehttp.py - log_message   
+"POST /polls/1/vote/ HTTP/1.1" 500 83837 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-08 14:56:26,729 - exception.py - handle_uncaught_exception   
+Internal Server Error: /polls/1/vote/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\project\apps\polls\views.py", line 52, in vote
+    selected_choice = question.choice_set.get(pk=request.POST['choice'])
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'choice'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\libs\decorator.py", line 15, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\polls\views.py", line 56, in vote
+    return rendr(request, 'polls/detail.html', {
+NameError: name 'rendr' is not defined
+[ERROR ]- 2018-02-08 14:56:26,832 - basehttp.py  - log_message   
+"POST /polls/1/vote/ HTTP/1.1" 500 83841 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-08 16:34:40,994 - base.py      - get_response   
+Not Found: /favicon.ico 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-08 16:34:40,996 - basehttp.py  - log_message   
+"GET /favicon.ico HTTP/1.1" 404 2179 
+--------------------------------------------------------------------------------
