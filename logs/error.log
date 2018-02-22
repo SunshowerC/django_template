@@ -309,3 +309,33 @@ AttributeError: 'QuerySet' object has no attribute 'username'
 [ERROR ]- 2018-02-22 14:36:46,917 - basehttp.py  - log_message   
 "POST /auth/login/ HTTP/1.1" 500 76945 
 --------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 15:38:35,131 - base.py      - get_response   
+Not Found: /auth/login/ 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 15:38:35,133 - basehttp.py  - log_message   
+"POST /auth/login/ HTTP/1.1" 404 2288 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 15:42:02,464 - base.py      - get_response   
+Not Found: /auth/login/ 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 15:42:02,466 - basehttp.py  - log_message   
+"POST /auth/login/ HTTP/1.1" 404 2288 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-22 15:55:34,660 - exception.py - handle_uncaught_exception   
+Internal Server Error: /account/register/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:/github/django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:/github/django_template\project\apps\log\views.py", line 48, in register
+    user = User.objects.filter(username__exact = request.POST.username)
+AttributeError: 'QueryDict' object has no attribute 'username'
+[ERROR ]- 2018-02-22 15:55:34,772 - basehttp.py  - log_message   
+"POST /account/register/ HTTP/1.1" 500 76107 
+--------------------------------------------------------------------------------

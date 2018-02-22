@@ -26,41 +26,42 @@ def log(request):
 '''API'''
 @post_method
 def login(request):
-    if request.method == 'POST':
-        userform = UserForm(request.POST)
+    userform = UserForm(request.POST)
 
-        username = request.POST['username']
-        password = request.POST['password']
+    username = request.POST['username']
+    password = request.POST['password']
 
-        user = User.objects.filter(username__exact=username,password__exact=password)
+    user = User.objects.filter(username__exact=username,password__exact=password)
 
-        if user:
-            return render(request, 'index.html',{'userform':user})
-        else:
-            return HttpResponse('用户名或密码错误,请重新登录')
-
+    if user:
+        return render(request, 'index.html',{'userform':list(user)[0].username})
     else:
-        userform = UserForm()
+        return HttpResponse('用户名或密码错误,请重新登录')
+
     return HttpResponse(userform)
 
 
 
 @post_method
 def register(request):
-    if request.method == 'POST':
-    	
-        userform = UserForm(request.POST)
-        if userform.is_valid():
-            username = userform.cleaned_data['username']
-            password = userform.cleaned_data['password']
-            email = userform.cleaned_data['email']
 
-            user = User(username=username,password=password,email=email)
-            user.save()
+    user = User.objects.filter(username__exact=request.POST['username'])
+    userform = UserForm(request.POST)
 
-            return HttpResponse('regist success!!!')
+    if user:
+        return HttpResponse('该用户名已存在')
+
+    if userform.is_valid():
+        username = userform.cleaned_data['username']
+        password = userform.cleaned_data['password']
+        email = userform.cleaned_data['email']
+
+        user = User(username=username,password=password,email=email)
+        user.save()
+
+        return HttpResponse('regist success!!!')
     else:
-        userform = UserForm()
+        return HttpResponse('表单需填写完整')
 
     return JsonResponse({'userform':userform});
 
