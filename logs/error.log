@@ -106,3 +106,206 @@ Not Found: /favicon.ico
 [WARNING]- 2018-02-08 16:34:40,996 - basehttp.py  - log_message   
 "GET /favicon.ico HTTP/1.1" 404 2179 
 --------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 14:32:05,893 - base.py      - get_response   
+Not Found: /favicon.ico 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 14:32:05,894 - basehttp.py  - log_message   
+"GET /favicon.ico HTTP/1.1" 404 2179 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-09 14:53:24,752 - exception.py - handle_uncaught_exception   
+Internal Server Error: /admin/login/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "E:\github\django_template\venv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "E:\github\django_template\venv\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "E:\github\django_template\venv\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "E:\github\django_template\venv\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: admin/login.html
+[ERROR ]- 2018-02-09 14:53:24,824 - basehttp.py  - log_message   
+"GET /admin/login/?next=/admin/ HTTP/1.1" 500 81837 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:03:02,262 - base.py      - get_response   
+Not Found: /auth/register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:03:02,264 - basehttp.py  - log_message   
+"GET /auth/register HTTP/1.1" 404 2524 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:04:29,487 - base.py      - get_response   
+Not Found: /register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:04:29,491 - basehttp.py  - log_message   
+"POST /register HTTP/1.1" 404 2276 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:05:57,343 - base.py      - get_response   
+Not Found: /register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:05:57,345 - basehttp.py  - log_message   
+"POST /register HTTP/1.1" 404 2276 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:06:57,898 - base.py      - get_response   
+Not Found: /register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:06:57,903 - basehttp.py  - log_message   
+"POST /register HTTP/1.1" 404 2276 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:07:09,948 - base.py      - get_response   
+Not Found: /log/register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:07:09,953 - basehttp.py  - log_message   
+"POST /log/register HTTP/1.1" 404 2288 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-09 18:07:39,590 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/register 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\middleware\common.py", line 61, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\middleware\common.py", line 99, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/auth/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[ERROR ]- 2018-02-09 18:07:39,735 - basehttp.py  - log_message   
+"POST /auth/register HTTP/1.1" 500 68536 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-09 18:08:24,265 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/register/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\log\views.py", line 37, in register
+    User.save()
+TypeError: save() missing 1 required positional argument: 'self'
+[ERROR ]- 2018-02-09 18:08:24,304 - basehttp.py  - log_message   
+"POST /auth/register/ HTTP/1.1" 500 73705 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-09 18:12:00,496 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/register/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\log\views.py", line 37, in register
+    User.save()
+TypeError: save() missing 1 required positional argument: 'self'
+[ERROR ]- 2018-02-09 18:12:00,564 - basehttp.py  - log_message   
+"POST /auth/register/ HTTP/1.1" 500 73694 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:19:44,357 - base.py      - get_response   
+Not Found: /auth/log 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-09 18:19:44,359 - basehttp.py  - log_message   
+"GET /auth/log HTTP/1.1" 404 2682 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-09 18:25:29,243 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/login/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\github\django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:\github\django_template\project\apps\log\views.py", line 42, in login
+    return render_to_response('login.html',{'userform':userform})
+NameError: name 'render_to_response' is not defined
+[ERROR ]- 2018-02-09 18:25:29,310 - basehttp.py  - log_message   
+"POST /auth/login/ HTTP/1.1" 500 72921 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:39,056 - base.py      - get_response   
+Not Found: /register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:39,060 - basehttp.py  - log_message   
+"GET /register HTTP/1.1" 404 2275 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:43,711 - base.py      - get_response   
+Not Found: /log/register 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:43,713 - basehttp.py  - log_message   
+"GET /log/register HTTP/1.1" 404 2287 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:47,945 - base.py      - get_response   
+Not Found: /log/register/ 
+--------------------------------------------------------------------------------
+[WARNING]- 2018-02-22 09:37:47,947 - basehttp.py  - log_message   
+"GET /log/register/ HTTP/1.1" 404 2290 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-22 14:30:51,209 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/login/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:/github/django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:/github/django_template\project\apps\log\views.py", line 32, in login
+    username = userform.cleaned_data['username']
+AttributeError: 'UserForm' object has no attribute 'cleaned_data'
+[ERROR ]- 2018-02-22 14:31:30,810 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/login/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:/github/django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:/github/django_template\project\apps\log\views.py", line 32, in login
+    username = userform.cleaned_data['username']
+AttributeError: 'UserForm' object has no attribute 'cleaned_data'
+[ERROR ]- 2018-02-22 14:31:30,937 - basehttp.py  - log_message   
+"POST /auth/login/ HTTP/1.1" 500 76284 
+--------------------------------------------------------------------------------
+[ERROR ]- 2018-02-22 14:36:46,776 - exception.py - handle_uncaught_exception   
+Internal Server Error: /auth/login/ 
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\github\django_template\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:/github/django_template\project\common\decorator.py", line 19, in _deco
+    return func(request, *args, **kwargs)
+  File "E:/github/django_template\project\apps\log\views.py", line 38, in login
+    return render(request, 'index.html',{'userform':user.username})
+AttributeError: 'QuerySet' object has no attribute 'username'
+[ERROR ]- 2018-02-22 14:36:46,917 - basehttp.py  - log_message   
+"POST /auth/login/ HTTP/1.1" 500 76945 
+--------------------------------------------------------------------------------

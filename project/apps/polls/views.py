@@ -18,6 +18,7 @@ logger = logging.getLogger('root')
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]  # 降序，取 5 个
+    list_query = list(latest_question_list)
     context = {
         'latest_question_list': latest_question_list,
     }
@@ -53,7 +54,7 @@ def vote(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         # logger.error('testtest', stack_info=True)
-        return rendr(request, 'polls/detail.html', {
+        return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })

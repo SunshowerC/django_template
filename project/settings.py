@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',   # 消息传递
     'django.contrib.staticfiles', # 静态文件
     'project.apps.polls',
+    'project.apps.log'
 
 ]
 
@@ -57,7 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'templates'),os.path.join(BASE_DIR,'static'),],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
