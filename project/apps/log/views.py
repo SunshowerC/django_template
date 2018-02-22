@@ -7,6 +7,8 @@ from project.common.decorator import post_method, get_method
 from django import forms
 from .models import User
 
+from time import time
+
 import logging
 logger = logging.getLogger('root')
 
@@ -26,16 +28,23 @@ def log(request):
 '''API'''
 @post_method
 def login(request):
+
+    start = time()
     userform = UserForm(request.POST)
 
     username = request.POST['username']
     password = request.POST['password']
 
     user = User.objects.filter(username__exact=username,password__exact=password)
+    # user = User.objects.all()
 
-    if user:
+    # print(len(user))
+
+    if user.exists():
         return render(request, 'index.html',{'userform':list(user)[0].username})
     else:
+        end = time()
+        print('耗时', end - start)
         return HttpResponse('用户名或密码错误,请重新登录')
 
     return HttpResponse(userform)
@@ -45,7 +54,7 @@ def login(request):
 @post_method
 def register(request):
 
-    user = User.objects.filter(username__exact=request.POST['username'])
+    user = User.objects.get(username__exact=request.POST['username'])
     userform = UserForm(request.POST)
 
     if user:

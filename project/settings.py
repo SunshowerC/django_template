@@ -150,7 +150,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[%(levelname)-6s]- %(asctime)-12s - %(filename)-12s - %(funcName)-10s   \n%(message)s \n' + '-'*80,
+            'format': '[%(levelname)-6s] - %(asctime)-12s - %(filename)-12s - %(funcName)-10s   \n%(message)s \n' + '-'*80,
         },
         'simple': {
             'format': '[%(levelname)-6s]- %(asctime)-12s \n%(message)s \n' + '-'*80,
@@ -165,7 +165,7 @@ LOGGING = {
         # 输出全部信息 到 default.log
         'default': {
             'level': 'DEBUG',
-            'formatter': 'verbose',
+            # 'formatter': 'verbose',
             'class':'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(LOG_DIR,'default.log'), 
         },
@@ -203,7 +203,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'default', 'error_log'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
 
