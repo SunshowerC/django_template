@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',   # 会话
     'django.contrib.messages',   # 消息传递
     'django.contrib.staticfiles', # 静态文件
+
+    'debug_toolbar',
+
     'project.apps.polls',
     'project.apps.log'
 
@@ -50,9 +53,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'project.urls'
+DEBUG_TOOLBAR_CONFIG = {  'JQUERY_URL' : r"http://code.jquery.com/jquery-2.1.1.min.js"}
 
 TEMPLATES = [
     {
@@ -84,9 +91,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'my_web',
-        'USER': 'root',
+        'USER': 'will',
         'PASSWORD': 'bai123',
-        'HOST': 'localhost',
+        'HOST': '192.168.18.129',
         'PORT': '3306',
     }
 }
